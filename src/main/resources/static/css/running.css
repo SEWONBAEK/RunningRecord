@@ -1,0 +1,115 @@
+/* 1. 기본 테마 및 변수 */
+:root {
+    --primary-indigo: #6c5ce7;
+    --primary-dark: #0f172a;   /* 다크 네이비 */
+    --primary-light: #a29bfe;
+    --text-dark: #1e293b !important;  /* 본문용 진한 색 */
+    --text-muted: #64748b !important; /* 보조용 회색 */
+    --bg-light: #f1f5f9;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif !important;
+    background-color: var(--bg-light) !important;
+    color: var(--text-dark);
+}
+
+/* 2. Navigation Bar (상단바: 어두운 배경 + 흰색 글자) */
+.navbar {
+    background-color: var(--primary-dark) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#sync-area > .text-muted {
+    padding : 20px 0 0 40px;
+}
+
+.brand-icon-box {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    width: 35px; height: 35px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px; color: white;
+}
+.brand-text {
+    font-weight: 800; color: #ffffff !important;
+}
+.nav-link {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+/* 3. Hero Section (중간바: 어두운 배경 + 흰색 글자) */
+.hero-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    color: #ffffff !important;
+    border-bottom-left-radius: 40px; border-bottom-right-radius: 40px;
+}
+.text-gradient {
+    background: linear-gradient(to right, #a29bfe, #ffffff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* 4. 요약 카드 (중요: 흰색 배경 + 어두운 글자 강제) */
+.card {
+    background-color: #ffffff !important; /* 배경 흰색 고정 */
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+}
+.card h6 {
+    color: var(--text-muted); /* "총 러닝 거리" 등 제목: 진한 회색 */
+    font-weight: 600 !important;
+}
+/* 숫자 데이터들 색상 강제 지정 */
+#totalDistance, #totalTime, #averagePace, #totalCalories {
+    color: var(--primary-indigo) !important; /* 숫자: 보라색 고정 */
+    font-weight: 800 !important;
+    font-size: 1.8rem !important;
+}
+
+/* 5. 동기화 섹션 & 테이블 */
+.upload-section {
+    background: #ffffff !important;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.section-title {
+    color: var(--primary-dark) !important;
+    font-weight: 800;
+}
+.table {
+    background-color: #ffffff !important;
+}
+.table thead th {
+    background-color: #f8fafc !important;
+    color: #475569 !important; /* 헤더 글자색 */
+    font-weight: 700;
+}
+.table tbody td {
+    color: #1e293b !important; /* 테이블 본문 글자색: 진한 네이비 */
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* 6. 버튼 및 애니메이션 */
+.btn-primary-light {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe) !important;
+    border: none !important; color: white !important;
+}
+.hero-bg-circle-1, .hero-bg-circle-2 {
+    position: absolute; border-radius: 50%; z-index: 0;
+}
+.hero-bg-circle-1 {
+    top: -100px; right: -100px; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.2) 0%, transparent 70%);
+}
+.hero-bg-circle-2 {
+    bottom: -100px; left: -50px; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(162, 155, 254, 0.1) 0%, transparent 70%);
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+.footer { background: #ffffff; color: var(--text-muted); }

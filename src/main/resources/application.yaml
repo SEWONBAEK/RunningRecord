@@ -1,0 +1,13 @@
+spring :
+  application :
+    name : running
+  datasource :
+    url : jdbc:mysql://localhost:3306/running?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username : root
+    password : baek
+    driver-class-name : com.mysql.cj.jdbc.Driver
+
+  # jpa 설정 추가로 테이블 자동 생성
+  jpa :
+    hibernate :
+      ddl-auto : update   # 테이블 없으면 생성, 있으면 수정
