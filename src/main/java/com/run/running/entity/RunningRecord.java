@@ -22,7 +22,6 @@ public class RunningRecord {
     private String exerciseType;        // 운동 타입(달리기 : 1002)
     private LocalDateTime startTime;    // 시작 시간
     private Double meanSpeed;           // 평균 속도(m/s)
-    private LocalDateTime endTime;      // 종료 시간
     private Double distance;            // 거리(단위, m)
     private Double calorie;             // 칼로리(kcal)
 
