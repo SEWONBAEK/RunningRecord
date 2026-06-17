@@ -1,6 +1,6 @@
-package com.run.running.repository;
+package com.exercise.repository;
 
-import com.run.running.entity.RunningRecord;
+import com.exercise.entity.RunningRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

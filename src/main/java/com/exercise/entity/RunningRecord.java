@@ -1,18 +1,14 @@
-package com.run.running.entity;
+package com.exercise.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@Setter
-@Table(name = "running_data")
+@Setter@Table(name = "running_data")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-@Builder
 public class RunningRecord {
 
     @Id
@@ -21,13 +17,26 @@ public class RunningRecord {
     private int meanHeartRate;          // 평균 심박수
     private String exerciseType;        // 운동 타입(달리기 : 1002)
     private LocalDateTime startTime;    // 시작 시간
-    private Double meanSpeed;           // 평균 속도(m/s)
     private Double distance;            // 거리(단위, m)
     private Double calorie;             // 칼로리(kcal)
+
+    // DB에 저장되지 않고 계산을 위해 받는 값
+    @Transient
+    private Double meanSpeed;           // 평균 속도(m/s)
 
     // ------------ 가공 필드 ------------
     private Long durationSeconds;       // 운동 시간(초 단위로 계산 저장)
     private String pace;                // 평균 페이스(예 : 1km당 5'30")
+
+    @Builder
+    public RunningRecord(int meanHeartRate, String exerciseType, LocalDateTime startTime, Double meanSpeed, Double distance, Double calorie) {
+        this.meanHeartRate = meanHeartRate;
+        this.exerciseType = exerciseType;
+        this.startTime = startTime;
+        this.meanSpeed = meanSpeed;
+        this.distance = distance;
+        this.calorie = calorie;
+    }
 
     // CSV 데이터 받아온 후 운동 시간과 페이스 계산
     public void calculateDerivedFields() {

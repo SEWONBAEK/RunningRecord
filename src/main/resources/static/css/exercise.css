@@ -38,6 +38,19 @@ body {
     color: rgba(255,255,255,0.8) !important;
 }
 
+.custom-tab.active {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    border: 2px solid #0f172a !important;
+}
+
+.custom-tab {
+    background-color: transparent !important;
+    color: #0f172a !important;
+    border: 2px solid #0f172a !important;
+    transition: all 0.2s ease; /* 클릭 시 부드러운 전환 효과 */
+}
+
 /* 3. Hero Section (중간바: 어두운 배경 + 흰색 글자) */
 .hero-section {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
@@ -62,7 +75,8 @@ body {
     font-weight: 600 !important;
 }
 /* 숫자 데이터들 색상 강제 지정 */
-#totalDistance, #totalTime, #averagePace, #totalCalories {
+#totalDistance, #totalTime, #averagePace, #totalCalories,
+#totalDistanceWalk, #totalTimeWalk, #totalStepsWalk, #totalCaloriesWalk{
     color: var(--primary-indigo) !important; /* 숫자: 보라색 고정 */
     font-weight: 800 !important;
     font-size: 1.8rem !important;
@@ -74,6 +88,13 @@ body {
     border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
+
+#uploadCsvBtn {
+    color : #fff;
+    background-color : #0f172a;
+    border : 1px solid #0f172a;
+}
+
 .section-title {
     color: var(--primary-dark) !important;
     font-weight: 800;

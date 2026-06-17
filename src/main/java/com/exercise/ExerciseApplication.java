@@ -1,13 +1,13 @@
-package com.run.running;
+package com.exercise;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RunningApplication {
+public class ExerciseApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RunningApplication.class, args);
+        SpringApplication.run(ExerciseApplication.class, args);
     }
 
 }
