@@ -14,3 +14,13 @@ create table running_data (
     duration_seconds BIGINT,
     pace VARCHAR(20)
 );
+CREATE TABLE walking_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    exercise_type VARCHAR(10),
+    start_time DATETIME,
+    end_time DATETIME,
+    count INT NOT NULL,
+    distance DOUBLE,
+    calorie DOUBLE,
+    duration_seconds BIGINT
+);
