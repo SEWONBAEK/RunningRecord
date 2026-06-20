@@ -1,5 +1,54 @@
 $(document).ready(function() {
 
+    // 페이지 로드 시 위치 기반 날씨 조회
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successGPS, errorGPS);
+    } else {
+        $('#weather-loading').text("GPS를 지원하지 않는 브라우저입니다.");
+    }
+
+    function successGPS(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        // 스프링 부트 날씨 API 호출
+        $.ajax({
+            url: `/api/weather?lat=${lat}&lon=${lon}`,
+            method: 'GET',
+            success: function(data) {
+                // 로딩 메시지 숨기고 날씨 컨텐츠 표시
+                $('#weather-loading').hide();
+                $('#weather-info').show();
+
+                // 오늘 날짜 데이터 매핑
+                $('#today-sky').text(data.todaySky);
+                $('#today-humidity').text(data.todayREH + '%');
+                $('#today-temp').text(`${data.todayTMN} / ${data.todayTMX}`);
+
+                // 내일 날짜 데이터 매핑
+                $('#tomorrow-sky').text(data.tomorrowSky);
+                $('#tomorrow-humidity').text(data.tomorrowREH + '%');
+                $('#tomorrow-temp').text(`${data.tomorrowTMN} / ${data.tomorrowTMX}`);
+
+                // 모레 날짜 데이터 매핑
+                $('#dayafter-sky').text(data.dayAfterSky);
+                $('#dayafter-humidity').text(data.dayAfterREH + '%');
+                $('#dayafter-temp').text(`${data.dayAfterTMN} / ${data.dayAfterTMX}`);
+
+                // 미세먼지 데이터 매핑
+                $('#dust-pm10').text(`${data.pm10Grade} (${data.pm10Value} ㎍/㎥)`);
+                $('#dust-pm25').text(`${data.pm25Grade} (${data.pm25Value} ㎍/㎥)`);
+            },
+            error: function() {
+                $('#weather-loading').text("날씨 정보를 불러오지 못했습니다.");
+            }
+        });
+    }
+
+    function errorGPS() {
+        $('#weather-loading').text("위치 정보 권한을 허용해주세요.");
+    }
+
     // 공통 선택자
     const fileInput = $('#csvFileInput');
     const uploadBtn = $('#uploadCsvBtn');

@@ -134,3 +134,19 @@ body {
     50% { transform: translateY(-15px); }
 }
 .footer { background: #ffffff; color: var(--text-muted); }
+
+#exerciseTab .nav-item { flex: 1; }
+
+#exerciseTab .custom-tab {
+    width: 190px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+#weather-info-card {
+    padding: 10px !important;
+}

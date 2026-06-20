@@ -11,3 +11,7 @@ spring :
   jpa :
     hibernate :
       ddl-auto : update   # 테이블 없으면 생성, 있으면 수정
+
+openapi :
+  weather :
+    key : "808ed1947350cf807eac2e79b54fdd0fe168f50ed48d0f9df3e7a74128b9938e"

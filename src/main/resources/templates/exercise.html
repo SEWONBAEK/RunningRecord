@@ -47,6 +47,60 @@
         <div class="hero-bg-circle-2"></div>
     </header>
 
+    <div class="container mt-4">
+        <div class="row align-items-center g-3">
+
+            <div class="col-md-4 text-start">
+                <ul class="nav nav-pills" id="exerciseTab">
+                    <li class="nav-item">
+                        <button class="nav-link active me-2 custom-tab btn btn-lg py-3 px-4 fw-bold" id="tab-run" onclick="switchExercise('run')">🏃 RUN</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link custom-tab btn btn-lg py-3 px-4 fw-bold" id="tab-walk" onclick="switchExercise('walk')">🚶 WALK</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card border-0 shadow-sm p-3 bg-white" id="weather-info-card">
+                    <div id="weather-loading" class="text-center py-2 text-muted small">
+                        <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+                        위치 기반 날씨 정보를 불러오는 중...
+                    </div>
+
+                    <div id="weather-info" class="row text-center g-2 align-items-center" style="display: none;">
+                        <div class="col-4 border-end">
+                            <span class="badge bg-primary mb-1" style="font-size: 0.75rem;">오늘</span>
+                            <div class="small fw-bold text-dark" id="today-sky">☀️ -</div>
+                            <div class="text-muted" style="font-size: 0.8rem;">습도 <span id="today-humidity">-</span>%</div>
+                            <div class="fw-bold text-danger" style="font-size: 0.8rem;" id="today-temp">- / -</div>
+                        </div>
+
+                        <div class="col-4 border-end">
+                            <span class="badge bg-secondary mb-1" style="font-size: 0.75rem;">내일</span>
+                            <div class="small fw-bold text-dark" id="tomorrow-sky">☁️ -</div>
+                            <div class="text-muted" style="font-size: 0.8rem;">습도 <span id="tomorrow-humidity">-</span>%</div>
+                            <div class="fw-bold text-secondary" style="font-size: 0.8rem;" id="tomorrow-temp">- / -</div>
+                        </div>
+
+                        <div class="col-4">
+                            <span class="badge bg-secondary mb-1" style="font-size: 0.75rem;">모레</span>
+                            <div class="small fw-bold text-dark" id="dayafter-sky">🌧️ -</div>
+                            <div class="text-muted" style="font-size: 0.8rem;">습도 <span id="dayafter-humidity">-</span>%</div>
+                            <div class="fw-bold text-secondary" style="font-size: 0.8rem;" id="dayafter-temp">- / -</div>
+                        </div>
+
+                        <div class="col-12 mt-2 pt-2 border-top d-flex justify-content-center gap-4 text-muted" style="font-size: 0.85rem;">
+                            <div><i class="fas fa-smog text-warning me-1"></i>미세먼지: <span id="dust-pm10" class="fw-bold text-dark">-</span></div>
+                            <div><i class="fas fa-mask text-info me-1"></i>초미세먼지: <span id="dust-pm25" class="fw-bold text-dark">-</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="container mt-5">
         <h3 class="section-title"><i class="fas fa-sync-alt me-2"></i> 삼성 헬스 데이터 업로드</h3>
         <!-- Sync Section -->
@@ -63,15 +117,6 @@
                 </div>
             </div>
         </div>
-
-        <ul class="nav nav-pills mb-4 justify-content-center" id="exerciseTab">
-            <li class="nav-item">
-                <button class="nav-link active me-2 custom-tab" id="tab-run" onclick="switchExercise('run')">🏃 RUN</button>
-            </li>
-            <li class="nav-item">
-                <button class="nav-link custom-tab" id="tab-walk" onclick="switchExercise('walk')">🚶 WALK</button>
-            </li>
-        </ul>
 
         <!-- Summary Cards -->
         <div id="content-run" class="exercise-content">
